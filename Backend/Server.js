@@ -9,7 +9,13 @@ const app = express();
 const server = http.createServer(app);
 
 // Create a Socket.IO server and bind it to the HTTP server
-const io = new Server(server);
+const io = new Server(server,{
+    cors:{
+        origin:"http://localhost:5173/",
+        methods:["GET","POST"],
+        credentials:true
+    }
+});
 
 // Serve static files from the 'public' directory
 app.use(express.static('public'));
