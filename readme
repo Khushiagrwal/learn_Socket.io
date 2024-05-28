@@ -1,0 +1,31 @@
+Socket io create the persistence connection between server and connection 
+and bidirectional ,stateful.
+ex- Trading app , Chatting app , Real time games 
+
+
+HTTP it is the one way connection between server and client 
+unidirection ,half duplex and stateless protocol
+One response and request cycle between client and server
+ex- Ecommerce Websites
+
+Problems come with HTTP when we talk about real time then some solution come
+1- Polling is a method where the client periodically sends requests to the server to check for new data or updates.
+2- Short Polling is a specific form of polling where the client makes frequent, regular requests to the server. The       interval between these requests is relatively short.
+Disadvantages:
+Increases network traffic and server load.
+Can still experience delays and is not truly real-time.
+
+3-Long Polling is a more efficient version of polling designed to reduce the overhead and improve responsiveness. In long polling, the client sends a request to the server and the server holds the request open until new data is available or a timeout occurs. Once the server responds, the client immediately sends a new request, creating a continuous loop of waiting for updates.
+Disadvantages:
+Can be more complex to implement than short polling.
+If not managed properly, can lead to resource exhaustion on the server.
+
+SERVER SENT EVENTS
+Server-Sent Events (SSE) is a standard allowing servers to push real-time updates to clients over a single HTTP connection. This is particularly useful for applications requiring real-time updates like live news feeds, notifications, and dashboards.
+Limitations of SSE
+One-Way Communication: SSE is unidirectional; updates are sent from the server to the client only. For bidirectional communication, WebSockets might be more appropriate.
+Browser Support: While most modern browsers support SSE, some older browsers may not.
+Limited to HTTP/1.1: SSE uses long-lived HTTP connections, which can be less efficient than protocols designed for full-duplex communication like WebSockets.
+then WEBSOCKETS come 
+
+To establish the websocket connection between server and client client send the HTTP handshake request with upgrade header this is first request which is http to upgrade in websockets then server send the 101 response to switching protocol then handshake completed  
