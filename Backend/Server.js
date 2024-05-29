@@ -23,12 +23,12 @@ const io = new Server(server,{
 app.use(express.static('public'));
 
 // Handle connection event
-io.on('connection', (socket) => {
-    console.log(socket.id)
-    console.log('A user connected');
-    socket.emit("welcome",`Welcome ${socket.id}`) // send msg to the particular socket 
-    // socket.broadcast.emit("welcome",`Welcome ${socket.id}`)  // send msg to the other sockets except this (socket.id)
-});
+// io.on('connection', (socket) => {
+//     console.log("User Connected")
+//     socket.on("message",(data)=>{
+//         console.log(data)
+//     })
+// });
 
 // Define the port
 const PORT = process.env.PORT || 3000;
