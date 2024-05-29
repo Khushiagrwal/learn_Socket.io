@@ -1,5 +1,6 @@
-Socket io create the persistence connection between server and connection 
+Socket io create the persistence connection between server and connection. 
 and bidirectional ,stateful.
+Socket io is a library which is event based communication 
 ex- Trading app , Chatting app , Real time games 
 
 
