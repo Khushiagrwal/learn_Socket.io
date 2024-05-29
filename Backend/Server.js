@@ -9,7 +9,8 @@ const app = express();
 // Create an HTTP server
 const server = http.createServer(app);
 
-// Create a Socket.IO server and bind it to the HTTP server
+// Create a Socket.IO server and 
+
 const io = new Server(server,{
     cors:{
         origin:"http://localhost:5173",
@@ -23,7 +24,10 @@ app.use(express.static('public'));
 
 // Handle connection event
 io.on('connection', (socket) => {
+    console.log(socket.id)
     console.log('A user connected');
+    socket.emit("welcome",`Welcome ${socket.id}`) // send msg to the particular socket 
+    // socket.broadcast.emit("welcome",`Welcome ${socket.id}`)  // send msg to the other sockets except this (socket.id)
 });
 
 // Define the port
